@@ -2,7 +2,7 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { useCallback } from "react";
-import foto1 from "../../Foto/2B70A24A-A281-4019-A393-0AEEA711358E_1_105_c.jpeg";
+import { City, Dog, Zebra } from "./../../Foto/pics";
 import style from "./Carousel.module.css";
 
 export default function Carousel() {
@@ -25,7 +25,7 @@ export default function Carousel() {
 				<div className={style.embla__container}>
 					<div className={style.embla__slide}>
 						<Image
-							src={foto1}
+							src={Dog}
 							alt="Slide 1"
 							className={style.embla__image}
 							width={1280}
@@ -35,7 +35,7 @@ export default function Carousel() {
 					</div>
 					<div className={style.embla__slide}>
 						<Image
-							src={foto1}
+							src={Zebra}
 							alt="Slide 2"
 							className={style.embla__image}
 							width={1280}
@@ -45,7 +45,7 @@ export default function Carousel() {
 					</div>
 					<div className={style.embla__slide}>
 						<Image
-							src={foto1}
+							src={City}
 							alt="Slide 3"
 							className={style.embla__image}
 							width={1280}
