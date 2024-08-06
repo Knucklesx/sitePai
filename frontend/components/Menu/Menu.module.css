@@ -1,0 +1,15 @@
+.nav_brand {
+  display: flex;
+  align-items: center;
+  width: 9%;
+  background-color: var(--navbar-background-color);
+
+  border-radius: 4px;  
+}
+
+.nav_brand img {
+  /* height: 40px;  */
+  margin-right: 0.5rem;
+  width: 50%
+
+}

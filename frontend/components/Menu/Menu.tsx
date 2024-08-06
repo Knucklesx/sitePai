@@ -1,4 +1,5 @@
 "use client";
+import { LogoSemBg } from "@/Foto/pics";
 import {
 	Link,
 	Navbar,
@@ -9,10 +10,21 @@ import {
 	NavbarMenuItem,
 	NavbarMenuToggle,
 } from "@nextui-org/react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React from "react";
+import styles from "./Menu.module.css";
 
 export default function Menu() {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+	// const router = useRouter();
+	const currentRouter = usePathname();
+
+	const fullMenuItems = [
+		{ name: "Principal", path: "/" },
+		{ name: "Portfólio", path: "/portfolio" },
+		{ name: "Contatos", path: "/contacts" },
+	];
 
 	const menuItems = [
 		"Profile",
@@ -28,11 +40,16 @@ export default function Menu() {
 	];
 
 	return (
-		<Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+		<Navbar
+			isBordered
+			isMenuOpen={isMenuOpen}
+			onMenuOpenChange={setIsMenuOpen}
+			className="bg-gray-400"
+		>
 			<NavbarContent className="sm:hidden pr-3" justify="start">
 				<NavbarBrand>
-					{/* <AcmeLogo /> */}
-					<p className="font-bold text-inherit">ACME</p>
+					<Image src={LogoSemBg} alt="logo" className={styles.nav_brand} />
+					<p className="font-bold text-inherit">JF</p>
 				</NavbarBrand>
 			</NavbarContent>
 			<NavbarContent className="sm:hidden" justify="end">
@@ -43,39 +60,38 @@ export default function Menu() {
 
 			<NavbarContent className="hidden sm:flex gap-4" justify="end">
 				<NavbarBrand>
-					{/* <AcmeLogo /> */}
-					<p className="font-bold text-inherit">ACME</p>
+					<Image src={LogoSemBg} alt="logo" className={styles.nav_brand} />
+					<p className="font-bold text-inherit">João Facchinetti</p>
 				</NavbarBrand>
-				<NavbarItem>
+				{/* <NavbarItem isActive>
 					<Link color="foreground" href="#">
-						Features
+						Principal
 					</Link>
 				</NavbarItem>
-				<NavbarItem isActive>
+				<NavbarItem>
 					<Link href="#" aria-current="page">
-						Customers
+						Portfólio
 					</Link>
 				</NavbarItem>
 				<NavbarItem>
 					<Link color="foreground" href="#">
-						Integrations
+						Contatos
 					</Link>
-				</NavbarItem>
+				</NavbarItem> */}
+				{fullMenuItems.map((item) => (
+					<NavbarItem key={item.path} isActive={currentRouter === item.path}>
+						<Link
+							color={currentRouter === item.path ? "primary" : "foreground"}
+							href={item.path}
+						>
+							{item.name}
+						</Link>
+					</NavbarItem>
+				))}
 			</NavbarContent>
 
-			{/* <NavbarContent justify="end">
-				<NavbarItem className="hidden lg:flex">
-					<Link href="#">Login</Link>
-				</NavbarItem>
-				<NavbarItem>
-					<Button as={Link} color="warning" href="#" variant="flat">
-						Sign Up
-					</Button>
-				</NavbarItem>
-			</NavbarContent> */}
-
 			<NavbarMenu>
-				{menuItems.map((item, index) => (
+				{fullMenuItems.map((item, index) => (
 					<NavbarMenuItem key={`${item}-${index}`}>
 						<Link
 							className="w-full"
@@ -89,7 +105,7 @@ export default function Menu() {
 							href="#"
 							size="lg"
 						>
-							{item}
+							{item.name}
 						</Link>
 					</NavbarMenuItem>
 				))}
