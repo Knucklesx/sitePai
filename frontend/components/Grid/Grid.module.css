@@ -1,0 +1,16 @@
+.grid_text {
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    border: solid;
+    border-color: green;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1rem;
+    margin: 1rem; */
+}
+
+.grid_div {
+  border: solid;
+  border-color: red
+}

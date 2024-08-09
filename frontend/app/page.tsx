@@ -1,4 +1,5 @@
 import Carousel from "@/components/Carousel/Carousel";
+import Grid from "@/components/Grid/Grid";
 import Menu from "@/components/Menu/Menu";
 
 export default function Home() {
@@ -6,6 +7,8 @@ export default function Home() {
 		<>
 			<Menu />
 			<Carousel />
+
+			<Grid />
 		</>
 	);
 }
