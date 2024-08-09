@@ -7,6 +7,7 @@ export default function Home() {
 		<>
 			<Menu />
 			<Carousel />
+
 			<Grid />
 		</>
 	);
