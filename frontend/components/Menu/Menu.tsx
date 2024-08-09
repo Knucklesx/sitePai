@@ -1,5 +1,5 @@
 "use client";
-import { LogoSemBg } from "@/Foto/pics";
+import { LogoSemBg } from "@/GetPics/pics";
 import {
 	Link,
 	Navbar,
@@ -45,6 +45,7 @@ export default function Menu() {
 			isMenuOpen={isMenuOpen}
 			onMenuOpenChange={setIsMenuOpen}
 			className="bg-gray-400"
+			// className="bg-transparent"
 		>
 			<NavbarContent className="sm:hidden pr-3" justify="start">
 				<NavbarBrand>
@@ -63,21 +64,7 @@ export default function Menu() {
 					<Image src={LogoSemBg} alt="logo" className={styles.nav_brand} />
 					<p className="font-bold text-inherit">João Facchinetti</p>
 				</NavbarBrand>
-				{/* <NavbarItem isActive>
-					<Link color="foreground" href="#">
-						Principal
-					</Link>
-				</NavbarItem>
-				<NavbarItem>
-					<Link href="#" aria-current="page">
-						Portfólio
-					</Link>
-				</NavbarItem>
-				<NavbarItem>
-					<Link color="foreground" href="#">
-						Contatos
-					</Link>
-				</NavbarItem> */}
+
 				{fullMenuItems.map((item) => (
 					<NavbarItem key={item.path} isActive={currentRouter === item.path}>
 						<Link

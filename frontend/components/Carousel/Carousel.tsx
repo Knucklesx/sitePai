@@ -2,7 +2,7 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { useCallback } from "react";
-import { City, Dog, Zebra } from "./../../Foto/pics";
+import { City, Dog, Zebra } from "../../GetPics/pics";
 import style from "./Carousel.module.css";
 
 export default function Carousel() {
